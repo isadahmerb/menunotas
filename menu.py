@@ -21,7 +21,17 @@ while True:
             funcoes.maior(notas)
             funcoes.menor(notas)
         elif num == 4:
-            funcoes.save(notas)
+            print("Digite o formato desejado: ")
+            print("1.TXT")
+            print("2.JSON")
+            print("3.PLANILHA")
+            formato = int(input())
+            if formato == 1:
+                funcoes.savetxt(notas)
+            elif formato == 2:
+                funcoes.savej(notas)
+            elif formato == 3:
+                funcoes.savep(notas)
         elif num == 5:
             break
 

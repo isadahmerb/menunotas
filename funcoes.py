@@ -1,4 +1,6 @@
 import os
+import json
+import csv
 
 def addnota(n):
     notas = []
@@ -28,7 +30,7 @@ def menor(notas):
     r = min(notas) 
     print(f"menor = {r: .2f}")
 
-def save(notas):
+def savetxt(notas):
     pasta = "notas"
     arquivo = "notas"
     if not os.path.exists(pasta):
@@ -36,3 +38,30 @@ def save(notas):
     caminho = os.path.join(pasta, arquivo)
     with open(caminho, "w") as f:
         f.write(f"notas : {notas}")
+
+def savej(notas):
+    pasta = "notas"
+    arquivo = "notas.json"
+
+    if not os.path.exists(pasta):
+        os.makedirs(pasta)
+
+    caminho = os.path.join(pasta, arquivo)
+
+    with open(caminho, "w") as f:
+        json.dump(notas, f)
+
+def savep(notas):
+    base = os.path.dirname(os.path.abspath(__file__))
+    pasta = os.path.join(base, "notas")
+
+    if not os.path.exists(pasta):
+        os.makedirs(pasta)
+
+    caminho = os.path.join(pasta, "notas.csv")
+
+    with open(caminho, "w") as arquivo:
+        writer = csv.writer(arquivo)
+        writer.writerow(notas)
+
+    print(f"salvo em : {caminho}")
