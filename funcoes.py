@@ -1,3 +1,5 @@
+import os
+
 def addnota(n):
     notas = []
     for i in range(n):
@@ -25,3 +27,12 @@ def menor(notas):
         return
     r = min(notas) 
     print(f"menor = {r: .2f}")
+
+def save(notas):
+    pasta = "notas"
+    arquivo = "notas"
+    if not os.path.exists(pasta):
+        os.makedirs(pasta)
+    caminho = os.path.join(pasta, arquivo)
+    with open(caminho, "w") as f:
+        f.write(f"notas : {notas}")

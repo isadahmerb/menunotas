@@ -1,10 +1,11 @@
+import os
 import funcoes
 
 notas = []
 
 while True: 
     print("______________MENU______________")
-    print("DIGITE 1 para adicionar nota \nDIGITE 2 para visualizar todas as notas \nDIGITE 3 para visualizar a média, a maior nota e a menor nota \nDIGITE 4 para sair ")
+    print("DIGITE 1 para adicionar nota \nDIGITE 2 para visualizar todas as notas \nDIGITE 3 para visualizar a média, a maior nota e a menor nota \nDIGITE 4 para salvar em um arquivo \nDIGITE 5 para sair")
 
     try:    
         num = int(input())
@@ -20,6 +21,8 @@ while True:
             funcoes.maior(notas)
             funcoes.menor(notas)
         elif num == 4:
+            funcoes.save(notas)
+        elif num == 5:
             break
 
     except ValueError:
